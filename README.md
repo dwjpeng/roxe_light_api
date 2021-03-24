@@ -1,68 +1,68 @@
-# EOSIO Light API
+# ROXE Light API
 
-The API is providing information about EOSIO blockchain accounts and
-token balances. It is deployed for several blockchains, such as EOS,
+The API is providing information about ROXE blockchain accounts and
+token balances. It is deployed for several blockchains, such as ROXE,
 Telos, BOS, WAX, and Europechain. Also an endpoint for Jungle testnet is
 available.
 
 ## HTTP API
 
-In below examples, "eos" stands for the name of the network where API is
+In below examples, "roxe" stands for the name of the network where API is
 taking the data.
 
 * `http://apihost.domain/api/networks` lists all known networks and
   their information.
 
 * Retrieve all token balances, resources and authorization information
- for an account: `http://apihost.domain/api/account/eos/ACCOUNT`
+ for an account: `http://apihost.domain/api/account/roxe/ACCOUNT`
 
 * Retrieve only token balances for an account:
-  `http://apihost.domain/api/balances/eos/ACCOUNT`
+  `http://apihost.domain/api/balances/roxe/ACCOUNT`
 
 * Retrieve all account information except token balances:
-  `http://apihost.domain/api/accinfo/eos/ACCOUNT`
+  `http://apihost.domain/api/accinfo/roxe/ACCOUNT`
 
 * Retrieve REX balances (fund, maturing, matured) for an account:
-  `http://apihost.domain/api/rexbalance/eos/ACCOUNT`
+  `http://apihost.domain/api/rexbalance/roxe/ACCOUNT`
 
 * Retrieve raw REX information for an account (to perform calculations
   on the client side):
-  `http://apihost.domain/api/rexraw/eos/ACCOUNT`
+  `http://apihost.domain/api/rexraw/roxe/ACCOUNT`
 
-* Retrieve all accounts in all known EOSIO networks dependent on a
+* Retrieve all accounts in all known ROXE networks dependent on a
  public key (only up to 100 accounts are returned), including accounts
  with recursive permissions: `http://apihost.domain/api/key/KEY`
 
-* `http://apihost.domain/api/tokenbalance/eos/ACCOUNT/CONTRACT/TOKEN`
+* `http://apihost.domain/api/tokenbalance/roxe/ACCOUNT/CONTRACT/TOKEN`
   returns a plain text with numeric output indicating the token
   balance. Zero is returned if the token is not present or does not
   exist.
 
-* `http://apihost.domain/api/topholders/eos/CONTRACT/TOKEN/NUM` returns
+* `http://apihost.domain/api/topholders/roxe/CONTRACT/TOKEN/NUM` returns
   top NUM holders of a specified token in a JSON array containing arrays
   of (account, amount) pairs. NUM must not be less than 10 or more than
   1000.
 
-* `http://apihost.domain/api/holdercount/eos/CONTRACT/TOKEN` returns the
+* `http://apihost.domain/api/holdercount/roxe/CONTRACT/TOKEN` returns the
   total count of token holders as plain text. The result is "0" if the
   token does not exist.
 
-* `http://apihost.domain/api/usercount/eos`
+* `http://apihost.domain/api/usercount/roxe`
   returns a plain text with total number of accounts in the network.
 
-* `http://apihost.domain/api/topram/eos/NUM` returns top NUM RAM buyers
+* `http://apihost.domain/api/topram/roxe/NUM` returns top NUM RAM buyers
   in a JSON array containing arrays of (account, bytes) pairs. NUM must
   not be less than 10 or more than 1000.
 
-* `http://apihost.domain/api/topstake/eos/NUM` returns top NUM stake
+* `http://apihost.domain/api/topstake/roxe/NUM` returns top NUM stake
   holders by sum of CPU and Net stakes, in a JSON array containing
   arrays of (account, cpu_weight, net_weight) tuples. NUM must not be
   less than 10 or more than 1000.
 
 * `http://apihost.domain/api/codehash/SHA256` retrieves all accounts in
-  all known EOS networks by contract hash.
+  all known ROXE networks by contract hash.
 
-* `http://apihost.domain/api/sync/eos` returns a plain text with delay
+* `http://apihost.domain/api/sync/roxe` returns a plain text with delay
   in seconds that this server's blockchain database is behind the real
   time, and a status: OK if the delay is within 180 seconds, or
   'OUT_OF_SYNC' otherwise.
@@ -152,7 +152,7 @@ User discussion and support in Telegram: https://t.me/lightapi
 A list of public API endpoints is served by IPFS, and available with the
 following links:
 
-* https://endpoints.light.xeos.me/endpoints.json  (served by Cloudflare)
+* https://endpoints.light.xroxe.me/endpoints.json  (served by Cloudflare)
 
 * https://ipfs.io/ipns/QmTuBHRokSuiLBiqE1HySfK1BFiT2pmuDTuJKXNganE52N/endpoints.json
 
@@ -162,22 +162,22 @@ following links:
 * [GetScatter](https://get-scatter.com/): engineering, hosting and
   maintenance.
 
-* [EOS Cafe Block](https://www.eoscafeblock.com/): new features.
+* [ROXE Cafe Block](https://www.roxecafeblock.com/): new features.
 
 * [Telos community](https://telosfoundation.io/): development of
   additional features in Chronicle.
 
-* [EOS Amsterdam](https://eosamsterdam.net/) and
+* [ROXE Amsterdam](https://roxeamsterdam.net/) and
   [Newdex](https://newdex.io/): development of Version 2.
 
-* [EOS Amsterdam](https://eosamsterdam.net/): hosting for BOS, WAX,
+* [ROXE Amsterdam](https://roxeamsterdam.net/): hosting for BOS, WAX,
   Europechain, Worbli and Instar blockchains.
 
-* [Worbli](https://worbli.io/) and [EOS
-  Amsterdam](https://eosamsterdam.net/): hosting and maintenance of
+* [Worbli](https://worbli.io/) and [ROXE
+  Amsterdam](https://roxeamsterdam.net/): hosting and maintenance of
   service in Singapore.
   
-* [SOV](https://www.soveos.one/): new features.
+* [SOV](https://www.sovroxe.one/): new features.
 
 ## Installation
 
@@ -191,18 +191,18 @@ sudo cpanm Net::WebSocket::Server
 sudo cpanm Crypt::Digest::RIPEMD160;
 
 
-git clone https://github.com/cc32d9/eosio_light_api.git /opt/eosio_light_api
-cd /opt/eosio_light_api
+git clone https://github.com/cc32d9/ROXE_light_api.git /opt/ROXE_light_api
+cd /opt/ROXE_light_api
 
 sudo mysql <sql/lightapi_dbcreate.sql
-sh setup/add_eos_mainnet.sh
+sh setup/add_roxe_mainnet.sh
 
 curl -sL https://deb.nodesource.com/setup_13.x | bash -
 apt install -y nodejs
-cd /opt/eosio_light_api/wsapi
+cd /opt/ROXE_light_api/wsapi
 npm install
 
-vi /etc/default/lightapi_eos
+vi /etc/default/lightapi_roxe
 # add the Chronicle consumer socket details:
 # DBWRITE_OPTS=--port=8100
 
@@ -210,7 +210,7 @@ vi /etc/default/lightapi_eos
 # that are predefined in systemd/lightapi_api.service
 
 cd systemd
-sh install_systemd_dbwrite.sh eos
+sh install_systemd_dbwrite.sh roxe
 sh install_systemd_api.sh
 sh install_systemd_wsapi.sh 5101 5102 5103 5104 5105
 
@@ -220,7 +220,7 @@ sh install_systemd_wsapi.sh 5101 5102 5103 5104 5105
 
 # Cron job for token holder counts
 cat >/etc/cron.d/lightapi <<'EOT'
-*/5 * * * * root perl /opt/eosio_light_api/scripts/lightapi_holdercounts.pl
+*/5 * * * * root perl /opt/ROXE_light_api/scripts/lightapi_holdercounts.pl
 EOT
 
 
@@ -250,4 +250,4 @@ limitations under the License.
 
 ETH address: `0x7137bfe007B15F05d3BF7819d28419EAFCD6501E`
 
-EOS account: `cc32dninexxx`
+ROXE account: `cc32dninexxx`

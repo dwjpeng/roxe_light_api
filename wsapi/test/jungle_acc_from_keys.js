@@ -2,7 +2,7 @@
 
 const RPCClient = require('jsonrpc2-ws').Client;
 
-const client = new RPCClient('wss://lightapi.eosgeneva.io/wsapi');
+const client = new RPCClient('wss://lightapi.roxegeneva.io/wsapi');
 
 
 client.on('connected', () => { console.log('connected'); });
@@ -26,8 +26,8 @@ async function send_req() {
                 client.call("get_accounts_from_keys", {
                     reqid: 100,
                     network: 'jungle',
-                    keys: ['EOS8C9tb8QQhZet6WWcYFCWDKHYfjC3W59ugHCD63s7LLDQx6JsNK',
-                           'EOS8T8HVXABDqauhKg2hR3SjM9zbENPvA8KrYfsirG4oHX7QVVi9a'] })
+                    keys: ['ROXE8C9tb8QQhZet6WWcYFCWDKHYfjC3W59ugHCD63s7LLDQx6JsNK',
+                           'ROXE8T8HVXABDqauhKg2hR3SjM9zbENPvA8KrYfsirG4oHX7QVVi9a'] })
                     .then(res => {
                         console.log(JSON.stringify(res, null, 2));
                     });

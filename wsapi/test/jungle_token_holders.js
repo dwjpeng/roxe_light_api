@@ -2,7 +2,7 @@
 
 const RPCClient = require('jsonrpc2-ws').Client;
 
-const client = new RPCClient('wss://lightapi.eosgeneva.io/wsapi');
+const client = new RPCClient('wss://lightapi.roxegeneva.io/wsapi');
 
 
 client.on('connected', () => { console.log('connected'); });
@@ -24,8 +24,8 @@ async function send_req() {
                 client.call("get_token_holders", {
                     reqid: 100,
                     network: 'jungle',
-                    contract: 'eosio.token',
-                    currency: 'EOS'})
+                    contract: 'roxeio.token',
+                    currency: 'ROC'})
                     .catch(err => {
                         console.error(err);
                         process.exit();

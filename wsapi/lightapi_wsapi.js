@@ -3,7 +3,7 @@
 const mariadb   = require('mariadb');
 var nconf = require('nconf');
 const RPCServer = require('jsonrpc2-ws').Server;
-const Numeric = require('eosjs/dist/eosjs-numeric');
+const Numeric = require('roxejs/dist/roxejs-numeric');
 
 nconf.argv();
 
@@ -114,7 +114,7 @@ rpc.methods.set('get_accounts_from_keys', async (socket, params) => {
                                 try {
                                     for(let i=0; i<params.keys.length; i++) {
                                         let key = params.keys[i];
-                                        if( key.substr(0, 3) === 'EOS') { /* convert from legacy format */
+                                        if( key.substr(0, 4) === 'ROXE') { /* convert from legacy format */
                                             let k = Numeric.stringToPublicKey(key);
                                             key = Numeric.publicKeyToString(k);
                                         }

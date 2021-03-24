@@ -33,9 +33,9 @@ if( not $ok or scalar(@ARGV) > 0 or not
     ($network and $chainid and $description and $systoken and $decimals) )
 {
     print STDERR "Usage: $0 --network=N --chaind=ID --descr=DESCR --token=T --dec=4 [options...]\n",
-    "The utility inserts an EOS network information in the database\n",
+    "The utility inserts an ROXE network information in the database\n",
     "Options:\n",
-    "  --network=NAME     name of EOS network\n",
+    "  --network=NAME     name of ROXE network\n",
     "  --chainid=ID       network chain ID\n",
     "  --descr=DESCR      network description\n",
     "  --token=T          system token name\n",

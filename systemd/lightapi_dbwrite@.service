@@ -1,4 +1,4 @@
-# This unit's instance name is the EOS network name
+# This unit's instance name is the ROXE network name
 # The instance requires an environment file /etc/default/lightapi_%i
 # The mandatory variable DBWRITE_OPTS should include at least
 # the websocket server port for Chrinicle export.
@@ -10,7 +10,7 @@ After=mariadb.service
 
 [Service]
 Type=simple
-Environment="LIGHTAPI_HOME=/opt/eosio_light_api"
+Environment="LIGHTAPI_HOME=/opt/roxeio_light_api"
 EnvironmentFile=/etc/default/lightapi_%i
 
 ExecStart=/usr/bin/perl ${LIGHTAPI_HOME}/scripts/lightapi_dbwrite.pl --network=%i $DBWRITE_OPTS

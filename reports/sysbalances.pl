@@ -24,10 +24,10 @@ my $ok = GetOptions
 
 if( not $ok or scalar(@ARGV) > 0 or not $network )
 {
-    print STDERR "Usage: $0 --network=eos [options...]\n",
+    print STDERR "Usage: $0 --network=roxe [options...]\n",
     "The utility reports all system token balances, including stake and REX\n",
     "Options:\n",
-    "  --network=NAME     name of EOS network\n",
+    "  --network=NAME     name of ROXE network\n",
     "  --dsn=DSN          \[$dsn\]\n",
     "  --dbuser=USER      \[$db_user\]\n",
     "  --dbpw=PASSWORD    \[$db_password\]\n";
@@ -64,7 +64,7 @@ while( my $r = $sth->fetchrow_arrayref() )
 
 
 $sth = $dbh->prepare
-    ('SELECT account_name, amount FROM CURRENCY_BAL WHERE network=? AND contract=\'eosio.token\' AND currency=?');
+    ('SELECT account_name, amount FROM CURRENCY_BAL WHERE network=? AND contract=\'roxeio.token\' AND currency=?');
 
 $sth->execute($network, $systoken);
 while( my $r = $sth->fetchrow_arrayref() )

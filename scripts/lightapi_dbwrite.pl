@@ -32,12 +32,12 @@ my $ok = GetOptions
 
 if( not $ok or scalar(@ARGV) > 0 or not $network )
 {
-    print STDERR "Usage: $0 --network=eos [options...]\n",
+    print STDERR "Usage: $0 --network=roxe [options...]\n",
     "The utility opens a WS port for Chronicle to send data to.\n",
     "Options:\n",
     "  --port=N           \[$port\] TCP port to listen to websocket connection\n",
     "  --ack=N            \[$ack_every\] Send acknowledgements every N blocks\n",
-    "  --network=NAME     name of EOS network\n",
+    "  --network=NAME     name of ROXE network\n",
     "  --dsn=DSN          \[$dsn\]\n",
     "  --dbuser=USER      \[$db_user\]\n",
     "  --dbpw=PASSWORD    \[$db_password\]\n";
@@ -174,7 +174,7 @@ sub process_data
                     }
                 }
             }
-            elsif( $kvo->{'code'} eq 'eosio' )
+            elsif( $kvo->{'code'} eq 'roxeio' )
             {
                 if( $kvo->{'table'} eq 'delband' )
                 {

@@ -679,7 +679,7 @@ sub pad_hex
 sub from_legacy_key
 {
     my $pubkey = shift;
-    if( substr($pubkey, 0, 3) eq 'EOS' )
+    if( substr($pubkey, 0, 3) eq 'ROXE' )
     {
         my $whole = decode_base58(substr($pubkey,3));
         my ($key, $checksum) = unpack('a[33]a[4]', $whole);
@@ -707,7 +707,7 @@ sub to_legacy_key
             return '##INVALID_KEY##';
         }
 
-        return 'EOS' . encode_base58(pack('a[33]a[4]', $key, ripemd160($key)));
+        return 'ROXE' . encode_base58(pack('a[33]a[4]', $key, ripemd160($key)));
     }
     return $pubkey;
 }
@@ -822,7 +822,7 @@ $builder->mount
          my $path_info = $req->path_info;
 
          if ( $path_info !~ /^\/(\w+)\/([a-z1-5.]{1,13})$/ ) {
-             return(error($req, 'Expected a network name and a valid EOS account name in URL path'));
+             return(error($req, 'Expected a network name and a valid ROXE account name in URL path'));
          }
 
          my $network = $1;
@@ -855,7 +855,7 @@ $builder->mount
          my $path_info = $req->path_info;
 
          if ( $path_info !~ /^\/(\w+)\/([a-z1-5.]{1,13})$/ ) {
-             return(error($req, 'Expected a network name and a valid EOS account name in URL path'));
+             return(error($req, 'Expected a network name and a valid ROXE account name in URL path'));
          }
 
          my $network = $1;
@@ -887,7 +887,7 @@ $builder->mount
          my $path_info = $req->path_info;
 
          if ( $path_info !~ /^\/(\w+)\/([a-z1-5.]{1,13})$/ ) {
-             return(error($req, 'Expected a network name and a valid EOS account name in URL path'));
+             return(error($req, 'Expected a network name and a valid ROXE account name in URL path'));
          }
 
          my $network = $1;
@@ -918,7 +918,7 @@ $builder->mount
          my $path_info = $req->path_info;
 
          if ( $path_info !~ /^\/(\w+)\/([a-z1-5.]{1,13})$/ ) {
-             return(error($req, 'Expected a network name and a valid EOS account name in URL path'));
+             return(error($req, 'Expected a network name and a valid ROXE account name in URL path'));
          }
 
          my $network = $1;
@@ -947,7 +947,7 @@ $builder->mount
          my $path_info = $req->path_info;
 
          if ( $path_info !~ /^\/(\w+)\/([a-z1-5.]{1,13})$/ ) {
-             return(error($req, 'Expected a network name and a valid EOS account name in URL path'));
+             return(error($req, 'Expected a network name and a valid ROXE account name in URL path'));
          }
 
          my $network = $1;
@@ -1091,7 +1091,7 @@ $builder->mount
          my $path_info = $req->path_info;
 
          if ( $path_info !~ /^\/(\w+)$/ ) {
-             return(error($req, 'Expected an EOSIO key'))
+             return(error($req, 'Expected an ROXEIO key'))
          }
 
          my $key = from_legacy_key($1);

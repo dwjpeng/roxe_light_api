@@ -1,5 +1,5 @@
 [Unit]
-Description=EOS Chronicle receiver
+Description=ROXE Chronicle receiver
 [Service]
 Type=simple
 ExecStart=/usr/local/sbin/chronicle-receiver --config-dir=/srv/%i/chronicle-config --data-dir=/srv/%i/chronicle-data
