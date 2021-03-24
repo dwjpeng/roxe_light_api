@@ -10,7 +10,7 @@ After=mariadb.service
 
 [Service]
 Type=simple
-Environment="LIGHTAPI_HOME=/opt/roxeio_light_api"
+Environment="LIGHTAPI_HOME=/opt/roxe_light_api"
 EnvironmentFile=/etc/default/lightapi_%i
 
 ExecStart=/usr/bin/perl ${LIGHTAPI_HOME}/scripts/lightapi_dbwrite.pl --network=%i $DBWRITE_OPTS
